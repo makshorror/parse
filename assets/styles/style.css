@@ -182,4 +182,9 @@ label {
   background-color: rgb(255, 255, 255);
 }
 
+.danger-text {
+  color: red;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */

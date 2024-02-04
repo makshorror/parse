@@ -108,7 +108,6 @@ class Parsing
         $min !== "" ? $minPrice = $min : $minPrice = 0;
         $max !== "" ? $maxPrice = $max : $maxPrice = 42550;
         $sortPriceArray = [];
-
         foreach ($this->data as $row) {
             $row['2'] ? $price = $this->converToInt($row['2']) : $price = 0;
             if ($price >= $minPrice && $price <= $maxPrice) $sortPriceArray[] = $this->rowArray($row['0'], $row['1'], $price, $row['3']);
@@ -121,5 +120,10 @@ class Parsing
     public function limitation($limit)
     {
         return $limit <= 0 ? $this->data : $this->data = array_slice($this->data, 0, $limit);
+    }
+    //Метод остановки парсинга
+    public function deleteData(){
+        $this->data = [];
+        return $this->data;
     }
 }

@@ -69,6 +69,8 @@
                             id="minPrice"
                             type="number"
                             name="minPrice"
+                            min="0"
+                            max="42550"
                             placeholder="Введите минимальную сумму..."
                     >
                 </div>
@@ -80,6 +82,7 @@
                             type="number"
                             name="maxPrice"
                             placeholder="Введите максимальную сумму..."
+                            min="1"
                             max="42550"
                     >
                 </div>
@@ -148,7 +151,14 @@
         }
 
         if ($_POST["minPrice"] !== "" || $_POST["maxPrice"] !== "") {
-            $parsing->sortByPrice($_POST["minPrice"], $_POST["maxPrice"]);
+            if (intval($_POST["minPrice"]) > intval($_POST["maxPrice"])) {
+                echo '<h3 class="danger-text">Неверно введен диапазон цен. Попробуйте ещё раз...</h3>';
+                $parsing->deleteData();
+                $database->databaseConnectClose();
+                exit();
+            } else {
+                $parsing->sortByPrice($_POST["minPrice"], $_POST["maxPrice"]);
+            }
         }
 
         if ($_POST["limit"] !== "") {
