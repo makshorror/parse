@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
+
+}
+
+.container {
+
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.heading{
+  font-size: 28px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table{
+  border: 1px solid #eee;
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+.table th {
+  font-weight: bold;
+  padding: 5px;
+  background: #efefef;
+  border: 1px solid #dddddd;
+}
+.table td{
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  text-align: center;
+}
+.table tbody tr:nth-child(odd){
+  background: #fff;
+}
+.table tbody tr:nth-child(even){
+  background: #F7F7F7;
+}
+.count{
+  padding: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 1.7em;
+  margin: 0 0 24px 0;
+  border: 0.16em solid white;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  transition: all 0.3s;
+  background-color: #8AB4F7;
+}
+
+.btn:hover {
+  color: black;
+  border: 0.16em solid #8AB4F7;
+  background-color: rgb(255, 255, 255);
+}
