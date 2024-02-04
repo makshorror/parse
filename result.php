@@ -24,13 +24,14 @@
             <a href="index.php" class="btn">Вернуться назад</a>
                 <?php
                 require 'classes/database.php';
-                $count = 1;
+                $count = 0;
                 $database = new Database();
                 $database->databaseConnect();
                 $sql = "SELECT * FROM Parse";
                 if($result = $database->connect->query($sql)){
                     echo "<table class='table'><tr><th class='count'>#</th><th>Артикул</th><th>Название товара</th><th>Цена</th><th>Остаток</th></tr>";
                     foreach($result as $row){
+                        $count++;
                         echo "<tr>";
                         echo "<td class='count'>" . $count . "</td>";
                         echo "<td>" . $row["article"] . "</td>";
@@ -38,8 +39,10 @@
                         echo "<td>" . $row["price"] . "</td>";
                         echo "<td>" . $row["balance"] . "</td>";
                         echo "</tr>";
-                        $count++;
                     }
+                }
+                if ($count === 0) {
+                    echo '<h3 class="danger-text">Ничего не найдено. Попробуйте ещё раз...</h3>';
                 }
                 $database->databaseConnectClose();
                 ?>
