@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -100,21 +100,33 @@
                         name="parse"
                 >ПАРСИТЬ
                 </button>
-                <a
-                        href="result.php"
-                        class="btn-parse"
-                >Вернуться к результатам парсинга</a>
+                <form
+                        method="POST">
+                    <button
+                            class="btn-parse"
+                            type="submit"
+                            name="backToResult"
+                    >Вернуться к результатам парсинга
+                    </button>
+                </form>
             </div>
 
         </form>
     </div>
     <?php
-    require 'database.php';
-    require 'parsing.php';
+    require 'classes/database.php';
+    require 'classes/parsing.php';
 
 
     $database = new Database();
     $parsing = new Parsing();
+
+    if (isset($_POST['backToResult'])) {
+        $database->databaseConnect();
+        $database->createTable();
+        $database->databaseConnectClose();
+        echo '<script>location.href="result.php"</script>';
+    }
 
     if (isset($_POST['parse'])) {
         $database->databaseConnect();

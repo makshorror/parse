@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
             <h3 class="heading">Результат парсинга</h3>
             <a href="index.php" class="btn">Вернуться назад</a>
                 <?php
-                require 'database.php';
+                require 'classes/database.php';
                 $count = 1;
                 $database = new Database();
                 $database->databaseConnect();
@@ -42,8 +42,6 @@
                     }
                 }
                 $database->databaseConnectClose();
-
-
                 ?>
         </div>
     </div>

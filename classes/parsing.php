@@ -1,5 +1,5 @@
 <?php
-require "vendor/autoload.php";
+require "./vendor/autoload.php";
 
 class Parsing
 {
@@ -34,7 +34,7 @@ class Parsing
     public function parseFile()
     {
         $parsedArray = [];
-        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load("uploads/excel/parser.xls");
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load("./uploads/excel/parser.xls");
         $data = array_slice($spreadsheet->getActiveSheet()->toArray(), 1, -1);
 
         //Избавление от NULL
